@@ -3,7 +3,7 @@
 #include <fstream>
 using namespace std;
 
-
+//classes - Mikita Hnidzin
 class Security;
 class Account;
 
@@ -81,3 +81,65 @@ public:
 };
 
 int Account::countAccount = 0;
+
+
+//classes - Hanna Shaparava
+
+class Calculator{
+    double totalAmount;
+    int numberOfDays;
+    double percent;
+    double totalResult;
+
+public:
+    Calculator(double totalAmount, int numberOfDays, double percent){
+
+    }
+    //урок 90 - дружественные методы, получить доступ к private полям класса account
+    //функция и параметры
+};
+
+class contribution : public Calculator{
+    double amount;
+    /*na ile dni symma wklada - kolic dniej вклада и создать тип вклада. (возвратный, безвозвратный - разные проценты). опираясь на эти данные показывает  сколько денег выйдет из этого вклада*/
+//функция, которая возвращает рассчет вклада
+//функция перезаписывает в функцию род класса - рассчитать
+
+};
+
+class countCredit : public Calculator{
+    double creditResult;
+    //возращает сколько в месяц нужно выплачивать
+    //принимает параметры: какая сумма, на сколько дней, тип кредита (от этого - процент, а его процент - в зависимости от количества дней)
+};
+
+//не идет от калькул
+class ExchangeMoney {
+private:
+    double eurBuy;
+    double eurSel;
+    double plnBuy;
+    double plnSel;
+
+    double exchangeResult;
+
+public:
+
+    ExchangeMoney(double eurB, double eurS, double plnB, double plnS){
+        eurBuy = eurB;
+        eurSel = eurS;
+        plnBuy = plnB;
+        plnSel = plnS;
+    }
+
+
+
+
+
+
+};
+
+int main() {
+
+    return 0;
+}
