@@ -100,17 +100,77 @@ public:
 };
 
 class contribution : public Calculator{
-    double amount;
-    /*na ile dni symma wklada - kolic dniej вклада и создать тип вклада. (возвратный, безвозвратный - разные проценты). опираясь на эти данные показывает  сколько денег выйдет из этого вклада*/
-//функция, которая возвращает рассчет вклада
-//функция перезаписывает в функцию род класса - рассчитать
+    void countContribution (double monthlyPay, double contribution){
+        //variables to hold the monthly pay and the amount of contribution
+        cout << "Please, enter the monthly pay:" << endl;
+        cin >> monthlyPay;
+        cout << endl;
+
+
+        //calculate and display a 5% contribution
+        contribution = monthlyPay * 0.05;
+        cout << "5 percent is: " << contribution << " per month" <<endl;
+
+        //calculate and display a 7% contribution
+        contribution = monthlyPay * 0.07;
+        cout << "7 percent is: " << contribution << " per month" <<endl;
+
+        //calculate and display a 10% contribution
+        contribution = monthlyPay * 0.1;
+        cout << "10 percent is: " << contribution << " per month" <<endl;
+    }
+
 
 };
 
-class countCredit : public Calculator{
-    double creditResult;
-    //возращает сколько в месяц нужно выплачивать
-    //принимает параметры: какая сумма, на сколько дней, тип кредита (от этого - процент, а его процент - в зависимости от количества дней)
+class countLoan : public Calculator{
+
+    void countCredit(double loanAmount, double totalAmount, double monthlyAmount){
+
+        int fiveRate = 5, tenRate = 10;
+        int fiveYears = 5, tenYears = 10;
+        int selection;
+        cout << "Please, enter the Loan Amount:" << endl;
+        cin >> loanAmount;
+        cout << endl;
+
+
+
+        cout << "Please, choose the Interest Rate:" << endl;
+
+        cout << "    Enter 1 to choose 5% rate for 10 years:" << endl;
+        cout << "or" << endl;
+        cout << "    Enter 2 to choose 10% rate for 5 years:" << endl;
+        cin >> selection;
+
+        switch(selection){
+            case 1:
+                cout << "You chose 5% rate for 10 years." << endl << endl;
+                cout << "Here's your information: " << endl;
+                totalAmount = (tenYears * loanAmount) + (tenYears * loanAmount *(fiveRate/100.00));
+                monthlyAmount = totalAmount/(tenYears * 12);
+
+                cout << "Total amount to be paid: " << totalAmount << endl;
+                cout << "Monthly amount to be paid: " << monthlyAmount << endl;
+                cout << "Your overpayment is: " << totalAmount - loanAmount << endl;
+                break;
+
+            case 2:
+                cout << "You chose 10% rate for 5 years." << endl << endl;
+                cout << "Here's your information: " << endl;
+                totalAmount = (fiveYears * loanAmount) + (fiveYears * loanAmount *(tenRate/100.00));
+                monthlyAmount = totalAmount/(fiveYears * 12);
+
+                cout << "Total amount to be paid: " << totalAmount << endl;
+                cout << "Monthly amount to be paid: " << monthlyAmount << endl;
+                cout << "Your overpayment is: " << totalAmount - loanAmount << endl;
+
+            default:
+                cout<< "I don't know this type of operation" << endl;
+                break;
+
+        }
+
 };
 
 //не идет от калькул
